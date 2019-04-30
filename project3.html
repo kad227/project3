@@ -91,6 +91,7 @@ function component(width, height, color, x, y, type) {
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
         }
+
         return crash;
     }
 }
@@ -99,6 +100,12 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+
+              setTimeout(function() {
+                 location.reload();
+     
+                }, 2000);
+               
             return;
         } 
     }
@@ -148,11 +155,12 @@ function clearCoor() {
 }
 
 
+
+
 </script>
 <br>
 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
-<button onclick="location.reload()">restart</button>
-<button onclick="startGame()">start</button>
+<button onclick="startGame()" style="height:50px ; width:10%">start</button>
 <p></p>
 <p>press start to play</p>
 
